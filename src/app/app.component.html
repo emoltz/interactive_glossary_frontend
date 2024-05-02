@@ -1,6 +1,10 @@
-<main class="underline">
-  Hello from the main component
+<main >
+  <div class="flex gap-3 flex-wrap p-3 ">
+    <app-card class="" [header]="termDefinitions[0].term" [body]="termDefinitions[0].definition"></app-card>
+    <app-card class="" [header]="termDefinitions[1].term" [body]="termDefinitions[1].definition"></app-card>
+    <app-card class="" [header]="termDefinitions[2].term" [body]="termDefinitions[2].definition"></app-card>
+  </div>
 </main>
 
 
-<router-outlet />
+<router-outlet/>
