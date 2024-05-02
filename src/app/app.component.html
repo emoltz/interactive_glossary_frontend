@@ -1,6 +1,6 @@
 <main>
   <div class="flex gap-3 flex-wrap p-3 ">
- @for (termDefinition of termDefinitions; track termDefinition.id) {
+    @for (termDefinition of termDefinitions; track termDefinition.id) {
       <app-card
         [header]="termDefinition.term"
         [body]="termDefinition.definition"
