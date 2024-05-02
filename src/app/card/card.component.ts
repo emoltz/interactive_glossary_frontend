@@ -10,5 +10,6 @@ import { Component, input } from '@angular/core';
 export class CardComponent {
   header = input<string>()
   body = input<string>()
+  gradeLevel = input<number>()
 
 }
