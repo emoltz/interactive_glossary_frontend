@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {CardComponent} from "./card/card.component";
-
+import {MatSlideToggle} from "@angular/material/slide-toggle";
 type TermDefinition = {
   id: number,
   term: string,
@@ -12,7 +12,7 @@ type TermDefinition = {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CardComponent],
+  imports: [RouterOutlet, CardComponent, MatSlideToggle],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
