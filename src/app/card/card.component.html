@@ -1,37 +1,34 @@
-
-<!--<mat-card class="-->
-<!--bg-amber-50 rounded-lg hover:cursor-pointer transition-all duration-300-->
-<!--max-w-md-->
-<!--h-2/3-->
-<!--overflow-hidden-->
-<!--">-->
-<!--  <mat-card-header>-->
-<!--&lt;!&ndash;    <mat-card-subtitle class="text-black">Math</mat-card-subtitle>&ndash;&gt;-->
-<!--    <mat-card-title>{{ header() }}</mat-card-title>-->
-<!--  </mat-card-header>-->
-<!--  <mat-card-content>-->
-<!--    <p>{{ body() }}</p>-->
-<!--    &lt;!&ndash;    <mat-divider></mat-divider>&ndash;&gt;-->
-<!--  </mat-card-content>-->
-<!--  &lt;!&ndash;  <mat-card-actions>&ndash;&gt;-->
-<!--  &lt;!&ndash;    <button mat-button>LIKE</button>&ndash;&gt;-->
-<!--  &lt;!&ndash;    <button mat-button>SHARE</button>&ndash;&gt;-->
-<!--  &lt;!&ndash;  </mat-card-actions>&ndash;&gt;-->
-<!--  &lt;!&ndash;  <mat-card-footer>&ndash;&gt;-->
-<!--  &lt;!&ndash;    <mat-progress-bar mode="indeterminate"></mat-progress-bar>&ndash;&gt;-->
-<!--  &lt;!&ndash;  </mat-card-footer>&ndash;&gt;-->
-<!--</mat-card>-->
+<mat-card class="
+bg-amber-50 rounded-lg hover:cursor-pointer transition-all duration-300
+max-w-md
+">
+  <mat-card-header>
+    <mat-card-title>
+      {{ header() }}
+      <span class=" text-sm text-gray-500 italic font-light">
+        {{ type() }}
+      </span>
 
 
-<div
-  class="flex flex-col p-3 border-2 border-gray-200
-  max-w-md
-  body-container
-  rounded-lg hover:shadow-md hover:cursor-pointer transition-all duration-300">
-  <div class="underline text-lg font-semibold">
-    {{ header() }}
-  </div>
-  <div class="">
-    {{ body() }}
-  </div>
-</div>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>{{ body() }}</p>
+  </mat-card-content>
+</mat-card>
+
+
+<!--<div-->
+<!--  class="flex flex-col p-3 border-2 border-gray-300-->
+<!--  max-w-md-->
+<!--  body-container-->
+<!--  rounded-lg hover:cursor-pointer transition-all duration-300-->
+<!--  "-->
+<!--&gt;-->
+<!--  <div class="underline text-lg font-semibold">-->
+<!--    {{ header() }}-->
+<!--  </div>-->
+<!--  <div class="">-->
+<!--    {{ body() }}-->
+<!--  </div>-->
+<!--</div>-->
