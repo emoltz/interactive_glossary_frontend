@@ -1,9 +1,10 @@
-import {Component, input} from '@angular/core';
-import {MatProgressBarModule} from '@angular/material/progress-bar';
-import {MatButtonModule} from '@angular/material/button';
-import {MatDividerModule} from '@angular/material/divider';
-import {MatCardModule} from '@angular/material/card';
-import {MatIcon} from "@angular/material/icon";
+import { Component, Input } from '@angular/core';
+import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+import { ExpandedCardComponent } from '../expanded-card/expanded-card.component';
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import {MatButtonModule} from "@angular/material/button";
+import {MatCardModule} from "@angular/material/card";
+import {MatDividerModule} from "@angular/material/divider";
 
 @Component({
   selector: 'app-card',
@@ -13,22 +14,27 @@ import {MatIcon} from "@angular/material/icon";
     MatCardModule,
     MatDividerModule,
     MatProgressBarModule,
-    MatIcon
+    MatDialogModule
   ],
   templateUrl: './card.component.html',
-  styleUrl: './card.component.scss'
+  styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
-  header = input<string>()
-  body = input<string>()
-  gradeLevel = input<number>()
-  type = input<string>()
+  @Input() header!: string;
+  @Input() body!: string;
+  @Input() gradeLevel!: number;
+  @Input() type!: string;
 
+  constructor(private dialog: MatDialog) {}
 
-  isExpanded = false;
-
-  toggleCard() {
-    this.isExpanded = !this.isExpanded;
+  openDialog() {
+    this.dialog.open(ExpandedCardComponent, {
+      data: {
+        header: this.header,
+        body: this.body,
+        gradeLevel: this.gradeLevel,
+        type: this.type
+      }
+    });
   }
-
 }
