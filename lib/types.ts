@@ -1,14 +1,13 @@
-type Definition = {
-  definition: string;
-  grade_level: number;
-  language: string;
-}
 
-type TermAndDefinition = {
+
+export type TermAndDefinition = {
+  id: number;
   term: string;
-  definitions: Definition[]
+  definition: string;
+  language: string;
+  reading_level: number;
 }
 
-export type TermByGradeLevelResponse = {
+export type TermsAndDefsResponse = {
   terms_and_definitions: TermAndDefinition[];
 }

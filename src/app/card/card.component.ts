@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, signal, WritableSignal} from '@angular/core';
 import {MatDialog, MatDialogModule} from '@angular/material/dialog';
 import { ExpandedCardComponent } from '../expanded-card/expanded-card.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
@@ -20,21 +20,9 @@ import {MatDividerModule} from "@angular/material/divider";
   styleUrls: ['./card.component.scss']
 })
 export class CardComponent {
-  @Input() header!: string;
-  @Input() body!: string;
-  @Input() gradeLevel!: number;
-  @Input() type!: string;
-
-  constructor(private dialog: MatDialog) {}
-
-  openDialog() {
-    this.dialog.open(ExpandedCardComponent, {
-      data: {
-        header: this.header,
-        body: this.body,
-        gradeLevel: this.gradeLevel,
-        type: this.type
-      }
-    });
-  }
+  @Input() term = "";
+  @Input() definition = "";
+  @Input() gradeLevel = 0;
+  @Input() subject = "Math";
+  constructor() {}
 }

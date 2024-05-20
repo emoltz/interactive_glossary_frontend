@@ -1,8 +1,9 @@
-import {Component, effect, inject, OnInit} from '@angular/core';
+import {Component, effect, inject, OnInit, signal, WritableSignal} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {CardComponent} from "./card/card.component";
 import {MatSlideToggle} from "@angular/material/slide-toggle";
- import {ApiService} from "./api-service.service";
+import {ApiService} from "./api-service.service";
+import {TermAndDefinition, TermsAndDefsResponse} from "../../lib/types";
 
 
 @Component({
@@ -13,16 +14,24 @@ import {MatSlideToggle} from "@angular/material/slide-toggle";
   styleUrl: './app.component.scss'
 })
 
-export class AppComponent implements OnInit{
+export class AppComponent implements OnInit {
   title = 'interactive_glossary_frontend';
   api: ApiService = inject(ApiService);
+  gradeLevel = signal<number>(1)
+  language = signal<string>("english")
 
   ngOnInit() {
     this.api.fetchTerms();
+    this.api.fetchTermsAndDefinitions(this.gradeLevel(), this.language());
   }
 
-  get terms() {
-    return this.api.terms;
+  get termsAndDefs(): TermAndDefinition[] {
+
+    return this.api.termsAndDefs();
+  }
+
+  get terms(): string[] {
+    return this.api.terms();
   }
 
 

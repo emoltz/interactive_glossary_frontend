@@ -1,16 +1,14 @@
-<mat-card
-  (click)="openDialog()"
-  class="bg-amber-50 rounded-lg hover:cursor-pointer transition-all duration-300 max-w-md">
+<mat-card class="bg-amber-50 rounded-lg hover:cursor-pointer transition-all duration-300 max-w-md max-h-md">
   <mat-card-header>
     <mat-card-title>
-      {{ header }}
+      {{ term }}
       <span class="text-sm text-gray-500 italic font-light">
-        {{ type }}
+        {{ subject }}
       </span>
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <p>{{ body }}</p>
+    <p>{{ definition }}</p>
   </mat-card-content>
 </mat-card>
 
