@@ -1,9 +1,9 @@
 <main>
   <h1>{{ title }}</h1>
   <div class="p-3">
-    @if (api.terms()) {
+    @if (terms()) {
       <ul>
-        @for (term of api.terms(); track term) {
+        @for (term of terms(); track term) {
           <li>{{ term }}</li>
         } @empty {
           <li>No terms available.</li>

@@ -19,7 +19,10 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
     this.api.fetchTerms();
+  }
 
+  get terms() {
+    return this.api.terms;
   }
 
 
