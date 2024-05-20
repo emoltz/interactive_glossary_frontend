@@ -1,15 +1,31 @@
 <main>
-  <div class="flex gap-3 flex-wrap p-3 ">
-    @for (termDefinition of termDefinitions; track termDefinition.id) {
-      <app-card
-        [header]="termDefinition.term"
-        [body]="termDefinition.definition"
-        [gradeLevel]="termDefinition.grade_level"
-        [type]="termDefinition.type"
-      >
-      </app-card>
+  <h1>{{ title }}</h1>
+  <div class="p-3">
+    @if (api.terms()) {
+      <ul>
+        @for (term of api.terms(); track term) {
+          <li>{{ term }}</li>
+        } @empty {
+          <li>No terms available.</li>
+        }
+      </ul>
+    } @else {
+      <p>Loading terms...</p>
     }
+
   </div>
+
+  <!--  <div class="flex gap-3 flex-wrap p-3 ">-->
+  <!--    @for (termDefinition of termDefinitions; track termDefinition.id) {-->
+  <!--      <app-card-->
+  <!--        [header]="termDefinition.term"-->
+  <!--        [body]="termDefinition.definition"-->
+  <!--        [gradeLevel]="termDefinition.grade_level"-->
+  <!--        [type]="termDefinition.type"-->
+  <!--      >-->
+  <!--      </app-card>-->
+  <!--    }-->
+  <!--  </div>-->
 </main>
 
 

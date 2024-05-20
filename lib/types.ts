@@ -9,7 +9,6 @@ type TermAndDefinition = {
   definitions: Definition[]
 }
 
-
 export type TermByGradeLevelResponse = {
   terms_and_definitions: TermAndDefinition[];
 }
