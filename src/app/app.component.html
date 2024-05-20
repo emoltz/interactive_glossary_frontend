@@ -1,5 +1,6 @@
 <main>
   <h1>{{ title }}</h1>
+  <app-grade-select></app-grade-select>
   <div class="grid gap-3 grid-cols-1 ">
     @if (termsAndDefs) {
       @for (termDef of termsAndDefs; track termDef.id) {

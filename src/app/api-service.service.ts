@@ -30,12 +30,10 @@ export class ApiService {
         language: language
       }
     }
-    console.log("body: ", body)
 
     this.http.post<TermsAndDefsResponse>(`${BASE_URL + endpoints.all_terms_and_defs}`, body).subscribe({
       next: data => {
         const dataArr: TermAndDefinition[] = data.terms_and_definitions
-        console.log("data from response: ", data.terms_and_definitions)
         this.termsAndDefs.set(dataArr);
       },
       error: error => {
