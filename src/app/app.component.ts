@@ -3,7 +3,7 @@ import {RouterOutlet} from '@angular/router';
 import {CardComponent} from "./card/card.component";
 import {MatSlideToggle} from "@angular/material/slide-toggle";
 import {ApiService} from "./api-service.service";
-import {TermAndDefinition, TermsAndDefsResponse} from "../../lib/types";
+import {TermAndDefinition} from "../../lib/types";
 import {SelectComponent} from "./select/select.component";
 import {SidePanelComponent} from "./side-panel/side-panel.component";
 

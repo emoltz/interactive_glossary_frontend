@@ -16,9 +16,7 @@
         />
 
       </div>
-
-
-      <div class="grid gap-3 grid-cols-1 ">
+      <div class="grid gap-3 grid-cols-1 overflow-auto h-screen ">
         @if (termsAndDefs) {
           @for (termDef of termsAndDefs; track termDef.id) {
             <app-card
