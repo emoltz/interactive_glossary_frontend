@@ -18,7 +18,7 @@ import {SelectComponent} from "./select/select.component";
 export class AppComponent implements OnInit {
   title = 'interactive_glossary_frontend';
   api: ApiService = inject(ApiService);
-  gradeLevel = signal<number>(1)
+  gradeLevel = signal<number>(5)
   language = signal<string>("english")
 
   constructor() {

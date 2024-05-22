@@ -18,7 +18,7 @@ import {NgForOf} from "@angular/common";
   styleUrl: './select.component.scss'
 })
 export class SelectComponent {
-  @Input() selection!: WritableSignal<number>
+  @Input() selection!: WritableSignal<number | string>
   @Input() dropdownOptions!: any[]
   @Input() title!: string
 
