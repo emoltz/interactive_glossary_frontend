@@ -1,6 +1,6 @@
-import {Component, signal} from '@angular/core';
+import {Component, Input, WritableSignal} from '@angular/core';
 import {MatFormField, MatLabel} from "@angular/material/form-field";
-import {MatOption, MatSelect} from "@angular/material/select";
+import {MatOption, MatSelect, MatSelectChange} from "@angular/material/select";
 import {NgForOf} from "@angular/common";
 
 
@@ -18,10 +18,10 @@ import {NgForOf} from "@angular/common";
   styleUrl: './grade-select.component.scss'
 })
 export class GradeSelectComponent {
-  gradeLevel = signal<number>(1);
+  @Input() gradeLevel!: WritableSignal<number>
   grades = [1, 2, 3, 4, 5, 6, 7, 8];
 
-  onGradeChange(event: any): void {
+  onGradeChange(event: MatSelectChange) {
     this.gradeLevel.set(event.value);
   }
 

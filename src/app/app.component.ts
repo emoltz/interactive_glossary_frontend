@@ -21,6 +21,13 @@ export class AppComponent implements OnInit {
   gradeLevel = signal<number>(1)
   language = signal<string>("english")
 
+  constructor() {
+    // fetches on change
+    effect(() => {
+      this.api.fetchTermsAndDefinitions(this.gradeLevel(), this.language());
+    });
+  }
+
   ngOnInit() {
     this.api.fetchTerms();
     this.api.fetchTermsAndDefinitions(this.gradeLevel(), this.language());
