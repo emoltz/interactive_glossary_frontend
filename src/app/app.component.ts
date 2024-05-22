@@ -31,6 +31,13 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.api.fetchTerms();
     this.api.fetchTermsAndDefinitions(this.gradeLevel(), this.language());
+    this.api.fetchLanguages();
+  }
+
+  get availableLanguages(): string[] {
+    let languages = this.api.languages();
+    // turn all to title case
+    return languages.map((lang: string) => lang.charAt(0).toUpperCase() + lang.slice(1));
   }
 
   get termsAndDefs(): TermAndDefinition[] {

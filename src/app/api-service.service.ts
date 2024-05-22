@@ -5,7 +5,8 @@ import {TermAndDefinition, TermsAndDefsResponse} from "../../lib/types";
 const BASE_URL = 'http://0.0.0.0:8000/api/'
 const endpoints = {
   all_terms_and_defs: 'all_terms_and_defs/',
-  terms: 'get_terms'
+  terms: 'get_terms',
+  languages: 'get_languages/',
 }
 
 
@@ -15,10 +16,23 @@ const endpoints = {
 export class ApiService {
   terms = signal<string[]>([]);
   termsAndDefs = signal<TermAndDefinition[]>([]);
+  languages = signal<string[]>([]);
 
 
   constructor(private http: HttpClient) {
 
+  }
+
+  fetchLanguages(): void {
+    this.http.get<string[]>(`${BASE_URL + endpoints.languages}`, {}).subscribe({
+      next: (data: any) => {
+        const res: string[] = data.languages
+        this.languages.set(res);
+      },
+      error: error => {
+        console.error('Error fetching languages:', error);
+      }
+    });
   }
 
 
