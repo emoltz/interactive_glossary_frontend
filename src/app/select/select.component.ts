@@ -5,7 +5,7 @@ import {NgForOf} from "@angular/common";
 
 
 @Component({
-  selector: 'app-grade-select',
+  selector: 'app-select',
   standalone: true,
   imports: [
     MatFormField,
@@ -14,15 +14,16 @@ import {NgForOf} from "@angular/common";
     MatLabel,
     NgForOf
   ],
-  templateUrl: './grade-select.component.html',
-  styleUrl: './grade-select.component.scss'
+  templateUrl: './select.component.html',
+  styleUrl: './select.component.scss'
 })
-export class GradeSelectComponent {
-  @Input() gradeLevel!: WritableSignal<number>
-  grades = [1, 2, 3, 4, 5, 6, 7, 8];
+export class SelectComponent {
+  @Input() selection!: WritableSignal<number>
+  @Input() dropdownOptions!: any[]
+  @Input() title!: string
 
   onGradeChange(event: MatSelectChange) {
-    this.gradeLevel.set(event.value);
+    this.selection.set(event.value);
   }
 
 }

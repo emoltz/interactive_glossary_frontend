@@ -4,13 +4,13 @@ import {CardComponent} from "./card/card.component";
 import {MatSlideToggle} from "@angular/material/slide-toggle";
 import {ApiService} from "./api-service.service";
 import {TermAndDefinition, TermsAndDefsResponse} from "../../lib/types";
-import {GradeSelectComponent} from "./grade-select/grade-select.component";
+import {SelectComponent} from "./select/select.component";
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CardComponent, MatSlideToggle, GradeSelectComponent],
+  imports: [RouterOutlet, CardComponent, MatSlideToggle, SelectComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

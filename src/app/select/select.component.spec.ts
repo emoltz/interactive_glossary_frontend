@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GradeSelectComponent } from './grade-select.component';
+import { SelectComponent } from './select.component';
 
 describe('GradeSelectComponent', () => {
-  let component: GradeSelectComponent;
-  let fixture: ComponentFixture<GradeSelectComponent>;
+  let component: SelectComponent;
+  let fixture: ComponentFixture<SelectComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [GradeSelectComponent]
+      imports: [SelectComponent]
     })
     .compileComponents();
-    
-    fixture = TestBed.createComponent(GradeSelectComponent);
+
+    fixture = TestBed.createComponent(SelectComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

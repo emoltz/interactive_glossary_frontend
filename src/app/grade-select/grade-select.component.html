@@ -1,9 +1,0 @@
-<mat-form-field appearance="fill" >
-  <mat-label>Grade Level</mat-label>
-  <mat-select [value]="gradeLevel()" (selectionChange)="onGradeChange($event)" >
-    <mat-option  *ngFor="let grade of grades" [value]="grade" >
-      Grade {{ grade }}
-    </mat-option>
-  </mat-select>
-</mat-form-field>
-
