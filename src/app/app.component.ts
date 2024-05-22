@@ -5,12 +5,13 @@ import {MatSlideToggle} from "@angular/material/slide-toggle";
 import {ApiService} from "./api-service.service";
 import {TermAndDefinition, TermsAndDefsResponse} from "../../lib/types";
 import {SelectComponent} from "./select/select.component";
+import {SidePanelComponent} from "./side-panel/side-panel.component";
 
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CardComponent, MatSlideToggle, SelectComponent],
+  imports: [RouterOutlet, CardComponent, MatSlideToggle, SelectComponent, SidePanelComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit {
   api: ApiService = inject(ApiService);
   gradeLevel = signal<number>(5)
   language = signal<string>("english")
+  currentTermAndDef = signal<TermAndDefinition | undefined>(undefined)
 
   constructor() {
     // fetches on change
@@ -47,6 +49,10 @@ export class AppComponent implements OnInit {
 
   get terms(): string[] {
     return this.api.terms();
+  }
+
+  onCardClick(termAndDef: TermAndDefinition){
+    this.currentTermAndDef.set(termAndDef);
   }
 
 

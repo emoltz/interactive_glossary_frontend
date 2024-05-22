@@ -1,0 +1,11 @@
+@if (termAndDef) {
+  <div>
+    <h2>{{ termAndDef.term }}</h2>
+    <p>{{ termAndDef.definition }}</p>
+    <p>Grade Level: {{ termAndDef.reading_level }}</p>
+  </div>
+} @else {
+  <div class="">
+    Select a term
+  </div>
+}
