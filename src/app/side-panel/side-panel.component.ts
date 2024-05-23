@@ -1,4 +1,4 @@
-import {Component, Input, WritableSignal} from '@angular/core';
+import {Component, EventEmitter, Input, Output, WritableSignal} from '@angular/core';
 import {TermAndDefinition} from "../../../lib/types";
 import {NgForOf} from "@angular/common";
 
@@ -13,4 +13,9 @@ import {NgForOf} from "@angular/common";
 })
 export class SidePanelComponent {
   @Input() termsAndDefs: TermAndDefinition[] = [];
+  @Output() close = new EventEmitter<TermAndDefinition>();
+
+  onClose(termAndDef: TermAndDefinition){
+    this.close.emit(termAndDef);
+  }
 }

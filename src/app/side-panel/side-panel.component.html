@@ -1,6 +1,10 @@
 <div *ngFor="let termAndDef of termsAndDefs">
-  <div class="p-2 border-black border-2 ">
-    <h2>{{ termAndDef.term }}</h2>
+  <div class="p-2 m-3 border-black border-2 rounded-lg">
+    <div class="flex justify-between ">
+      <div class="text-2xl font-bold  ">{{ termAndDef.term }}</div>
+      <button class="w-8 p-1 bg-slate-500 text-white font-light font-mono rounded-lg hover:shadow" (click)="onClose(termAndDef)">x</button>
+    </div>
+
     <p>{{ termAndDef.definition }}</p>
     <p>Grade Level: {{ termAndDef.reading_level }}</p>
   </div>

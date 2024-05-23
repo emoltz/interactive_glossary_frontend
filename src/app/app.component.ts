@@ -77,6 +77,9 @@ export class AppComponent implements OnInit {
       });
     }
   }
+  onCloseTerm(termAndDef: TermAndDefinition) {
+    this.selectedTermsAndDefs.update(terms => terms.filter(t => t !== termAndDef));
+  }
 
 
 }
