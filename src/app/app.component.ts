@@ -1,4 +1,4 @@
-import {Component, effect, inject, OnInit, signal, WritableSignal} from '@angular/core';
+import {Component, effect, inject, OnInit, signal, Renderer2} from '@angular/core';
 import {RouterOutlet} from '@angular/router';
 import {CardComponent} from "./card/card.component";
 import {MatSlideToggle} from "@angular/material/slide-toggle";
@@ -19,14 +19,24 @@ import {SidePanelComponent} from "./side-panel/side-panel.component";
 export class AppComponent implements OnInit {
   title = 'interactive_glossary_frontend';
   api: ApiService = inject(ApiService);
+  renderer: Renderer2 = inject(Renderer2);
   gradeLevel = signal<number>(5)
   language = signal<string>("english")
-  currentTermAndDef = signal<TermAndDefinition | undefined>(undefined)
+  selectedTermsAndDefs = signal<TermAndDefinition[]>([])
 
   constructor() {
     // fetches on change
     effect(() => {
       this.api.fetchTermsAndDefinitions(this.gradeLevel(), this.language());
+    });
+
+    this.renderer.listen('document', 'click', (event: Event) => {
+      const target = event.target as HTMLElement;
+      if (target.classList.contains('glossary-term')) {
+        const term = target.getAttribute('data-term');
+        this.onGlossaryTermClick(term!);
+        event.preventDefault();
+      }
     });
   }
 
@@ -52,7 +62,20 @@ export class AppComponent implements OnInit {
   }
 
   onCardClick(termAndDef: TermAndDefinition){
-    this.currentTermAndDef.set(termAndDef);
+    this.selectedTermsAndDefs.update(terms => [...terms, termAndDef]);
+  }
+
+  onGlossaryTermClick(term: string) {
+    const termAndDef = this.termsAndDefs.find(t => t.term === term);
+    if (termAndDef) {
+      this.selectedTermsAndDefs.update(terms => {
+        // Avoid adding duplicate terms
+        if (!terms.some(t => t.term === term)) {
+          return [...terms, termAndDef];
+        }
+        return terms;
+      });
+    }
   }
 
 

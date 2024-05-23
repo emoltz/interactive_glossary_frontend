@@ -1,16 +1,16 @@
 import {Component, Input, WritableSignal} from '@angular/core';
 import {TermAndDefinition} from "../../../lib/types";
+import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-side-panel',
   standalone: true,
-  imports: [],
   templateUrl: './side-panel.component.html',
-  styleUrl: './side-panel.component.scss'
+  imports: [
+    NgForOf
+  ],
+  styleUrls: ['./side-panel.component.scss']
 })
 export class SidePanelComponent {
-  @Input() termAndDef?: TermAndDefinition;
-
-  constructor() { }
-
+  @Input() termsAndDefs: TermAndDefinition[] = [];
 }

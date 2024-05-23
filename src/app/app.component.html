@@ -17,26 +17,24 @@
 
       </div>
       <div class="grid gap-3 grid-cols-1 overflow-auto h-screen ">
-        @if (termsAndDefs) {
-          @for (termDef of termsAndDefs; track termDef.id) {
-            <app-card
-              (click)="onCardClick(termDef)"
-              [term]="termDef.term"
-              [definition]="termDef.definition"
-              [gradeLevel]="termDef.reading_level"
-            >
-            </app-card>
-
-
-          }
-        } @else {
-          <p>Loading terms...</p>
+      @if (termsAndDefs) {
+        @for (termDef of termsAndDefs; track termDef.id) {
+          <app-card
+            [term]="termDef.term"
+            [definition]="termDef.definition"
+            [gradeLevel]="termDef.reading_level"
+            (click)="onCardClick(termDef)"
+          >
+          </app-card>
         }
+      } @else {
+        <p>Loading terms...</p>
+      }
 
       </div>
     </div>
     <div class="">
-      <app-side-panel [termAndDef]="currentTermAndDef()"/>
+      <app-side-panel [termsAndDefs]="selectedTermsAndDefs()"></app-side-panel>
     </div>
   </div>
 
