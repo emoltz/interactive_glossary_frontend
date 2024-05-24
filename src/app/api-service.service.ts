@@ -1,5 +1,5 @@
 import {Injectable, signal, WritableSignal} from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {TermAndDefinition, TermsAndDefsResponse} from "../../lib/types";
 
 const BASE_URL = 'http://0.0.0.0:8000/api/'
